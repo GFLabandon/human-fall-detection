@@ -63,7 +63,7 @@ CLASS_NAMES = ["walk", "fall"]
 # Default weights filename (put it next to this file)
 DEFAULT_WEIGHTS = "action_lstm.pth"
 
-_DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+_DEVICE = torch.device("mps" if torch.cuda.is_available() else "cpu") #cuda
 _model  = None  # filled by load_model()
 
 # def load_model(weights_path: str = DEFAULT_WEIGHTS,
