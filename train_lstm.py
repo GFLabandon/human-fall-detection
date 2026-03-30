@@ -24,7 +24,7 @@ dataset = SkeletonDataset(root_dir="labeled_skeletons", sequence_length=sequence
 dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
 # ====== Model ======
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+#device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = ActionLSTM(
     input_size=input_size,
     hidden_size=hidden_size,
