@@ -5,6 +5,10 @@ from torch.utils.data import DataLoader
 from skeleton_dataset import SkeletonDataset   # ← matches your file
 from lstm_model import ActionLSTM, CLASS_NAMES # ← matches your file
 
+# 自动优先使用 MPS，无则用 CPU
+device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+print(f"使用设备: {device}")
+
 # ====== Hyperparameters ======
 sequence_length = 45          # must match play_and_detect.py
 input_size = 150              # ActionLSTM expects 150 (25 joints × 3 coords × 2 bodies)
