@@ -5,6 +5,10 @@
 # ** NOTE **
 # How to run?
 # ->  python play_and_detect.py --video test4.mp4 --use-model --weights action_lstm.pth
+import torch
+# 自动优先使用 MPS，无则用 CPU
+device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+print(f"使用设备: {device}")
 
 import os, sys, cv2, glob, argparse, time, csv, math
 # os: lets you talk to the computer’s operating system. sys: lets you talk to Python itself
